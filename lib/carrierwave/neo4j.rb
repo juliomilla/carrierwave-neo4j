@@ -25,7 +25,7 @@ module CarrierWave
 
       after_save :"store_#{column}!"
       before_save :"write_#{column}_identifier"
-      after_destroy :"remove_#{column}!"
+      before_destroy :"remove_#{column}!"
 
       class_eval <<-RUBY, __FILE__, __LINE__+1
         def _mounter(column)
